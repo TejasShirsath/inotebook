@@ -1,9 +1,6 @@
-import React, { useContext } from "react";
-import noteContext from "../context/notes/noteContext";
+import Notes from "./Notes";
 
 function Home() {
-  const context = useContext(noteContext);
-  const {notes, setNotes} = context;
   return (
     <div>
       <div className="container my-3">
@@ -49,6 +46,7 @@ function Home() {
           </button>
         </form>
       </div>
+      <Notes/>
     </div>
   );
 }
