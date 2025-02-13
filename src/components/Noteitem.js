@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
+import noteContext from "../context/notes/noteContext";
 
 const Noteitem = (props) => {
+  const context = useContext(noteContext);
+  const { deleteNote } = context;
   const { note } = props;
   return (
     <div className="col-md-3">
-      <div class="card my-3">
-        <div class="card-body">
-          <h5 class="card-title">{note.title}</h5>
-          <p class="card-text">{note.description} Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ea unde repellat esse, consequuntur dicta mollitia minima commodi facilis explicabo nihil perferendis aspernatur ipsa harum et, suscipit necessitatibus incidunt, dolorem numquam corrupti dolores neque.</p>
+      <div className="card my-3">
+        <div className="card-body">
+          <div className="d-flex align-items-center">
+            <h5 className="card-title">{note.title}</h5>
+            <i className="mx-2" onClick={()=>{deleteNote(note._id)}}><ion-icon name="trash-outline"></ion-icon></i>
+            <i className="mx-2"><ion-icon name="create-outline"></ion-icon></i>
+          </div>
+          <p className="card-text">{note.description}</p>
         </div>
       </div>
     </div>
